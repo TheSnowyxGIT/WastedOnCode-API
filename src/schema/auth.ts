@@ -15,3 +15,18 @@ export const registerUserSchema = object().shape({
             .min(8, "Password too short - should be 8 chars minimum.")
     })
 });
+
+// Create user session
+export interface createUserSessionBody {
+    email: string,
+    password: string
+}
+export const createUserSessionSchema = object().shape({
+    body: object({
+        email: string()
+            .email("Must be a valid email")
+            .required("Email is required"),
+        password: string()
+            .required("Password is required")
+    })
+});

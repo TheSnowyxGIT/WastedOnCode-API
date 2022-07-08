@@ -8,7 +8,8 @@ const log = logger({
     base: {
         pid: false
     },
-    timestamp: () => `,"time":"${dayjs().format()}"`
+    timestamp: () => `,"time":"${dayjs().format()}"`,
+    enabled: process.env.NODE_ENV !== "test"
 })
 
 export default log;
